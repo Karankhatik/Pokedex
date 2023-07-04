@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { PokemonList } from "./components/PokemonList";
 
 const AppLayout = () => {
   return (
     <>
-    <h1>
-        React Project set Up Done
-    </h1>     
+    <PokemonList/>    
     </>
   );
 };
