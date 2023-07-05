@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { PokemonList } from "./components/PokemonList";
+import { Body } from "./src/components/Body"
+import Header from "./src/components/Header";
+import Footer from "./src/components/Footer";
 
 const AppLayout = () => {
   return (
     <>
-    <PokemonList/>    
+    <Header/>
+    <Body/> 
+    <Footer/>  
     </>
   );
 };

@@ -1,9 +1,11 @@
 import React from 'react'
 
-export const PokemonList = () => {
+export const Body = () => {
   return (
     <>
-    
+    <h1>
+      Hello
+    </h1>
     </>
   )
 }
