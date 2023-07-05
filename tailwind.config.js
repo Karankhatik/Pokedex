@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{html,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+         // Example custom brown color using a hex code
+        // You can define more custom colors here
+      },
+    },
   },
   plugins: [],
 }
