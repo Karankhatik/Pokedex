@@ -19,15 +19,30 @@ const ShimmerBody = () => {
 };
 
 export const PokemonCardShimmer = () => {
-    const renderComponents = () => {
-      const components = [];
-      for (let i = 0; i < 10; i++) {
-        components.push(<ShimmerBody key={i} />);
-      }
-      return components;
-    };
-  
-    return <div>{renderComponents()}</div>;
+    
+     
+    return (
+      <>
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      <ShimmerBody />
+      
+      </>
+    )
   };
   
   

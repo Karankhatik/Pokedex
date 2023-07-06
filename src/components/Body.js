@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { PokemonCard } from "./PokemonCard";
 import { PokemonCardShimmer } from "./Shimmer";
+import { Link } from "react-router-dom";
+
 //https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0
 
 export const Body = () => {
@@ -54,8 +56,16 @@ export const Body = () => {
       <div className="flex flex-col md:flex-row items-center md:flex-wrap gap-5 my-2 md:my-0 m-20 ">
         {filteredPokemons?.length == 0 ? < PokemonCardShimmer/> :
         filteredPokemons?.map((data, index) => {
-          return <PokemonCard data={data} key={data.name} />;
-        })}
+          const pokemonNumber = data.url.match(/\/(\d+)\/$/)[1];
+          const pokemonDetailUrl = `/pokemon-detail/${pokemonNumber}`;
+        
+          return (
+            <Link to={pokemonDetailUrl} key={pokemonNumber}>
+              <PokemonCard data={data} />
+            </Link>
+          );
+        })
+        }
       </div>
     </>
   );

@@ -6,11 +6,14 @@ export const PokemonCard = ({ data }) => {
   const [pokemonImage, setPokemonImage] = useState([]);
   const [typeOfPokemon, setTypeOfPokemon] = useState([]);
   const [bgColorOfPokemonCart, setBgColorOfPokemonCart] = useState([]);
+
+
   useEffect(() => {
     getData();
   }, []);
 
   async function getData() {
+    
     const urlForPokemonDetail = await fetch(url);
     const jsonForPokemonDeatil = await urlForPokemonDetail.json();
 
