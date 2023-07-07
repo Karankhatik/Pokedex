@@ -4,7 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import { PokemonContext } from "../context/PokemonContext";
 
 export const PokemonDetail = () => {
-  const [pokemonDetail, setPokemonDetail] = useState('');
+  const [pokemonDetail, setPokemonDetail] = useState([]);
   const [pokemonImage, setPokemonImage] = useState();
   const [pokemonName, setPokemonName] = useState();
   const [pokemonType, setPokemonType] = useState([]);
@@ -22,7 +22,7 @@ export const PokemonDetail = () => {
   async function getData() {
     const url = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const json = await url.json();
-    //console.log(json);
+    console.log(json);
     setPokemonImage(json?.sprites?.other?.dream_world?.front_default);
     setPokemonName(json.name);
     setPokemonType(json?.types);
@@ -30,7 +30,7 @@ export const PokemonDetail = () => {
       const urlForPokemonDetail = await fetch(`${json?.species?.url}`);
       const jsonForPokemonDetail = await urlForPokemonDetail.json();
       //console.log(jsonForPokemonDetail);
-      setPokemonDetail(jsonForPokemonDetail);
+      setPokemonDetail(json);
     }
   }
   
@@ -87,7 +87,7 @@ export const PokemonDetail = () => {
   </div>
 
   {/* Name, Species, and Type */}
-  <div className="flex flex-col md:flex-row justify-between mt-2">
+  <div className="flex space-x-2 mt-2">
     {/* Name of Pokemon */}
     <div className="font-bold text-2xl">
       {pokemonName?.charAt(0).toUpperCase() + pokemonName?.slice(1)}
@@ -117,7 +117,7 @@ export const PokemonDetail = () => {
           <div className="flex flex-row space-x-3">
             {/* Pokemon About Link */}
             <div>
-              <Link to={`/pokemon-detail/${id}`}>
+              <Link to={`/pokemon-detail/${id}`}  >
                 <button  className="text-xs font-medium shadow-md px-2 py-2 outline-none rounded-xl bg-orange-500 hover:bg-orange-600 transition-all duration-200 ease-in-out text-white">
                   About
                 </button>
@@ -133,14 +133,14 @@ export const PokemonDetail = () => {
               </Link>
             </div>
 
-            {/* Pokemon Evolution Link */}
+            {/* Pokemon Evolution Link
             <div>
               <Link to={`/pokemon-detail/${id}/evolution/${id}`}>
                 <button className="text-xs font-medium shadow-md px-2 py-2 outline-none rounded-xl bg-orange-500 hover:bg-orange-600 transition-all duration-200 ease-in-out text-white">
                   Evolution
                 </button>
               </Link>
-            </div>
+            </div> */}
             <div className="border-b border-gray-600"></div>
             {/* Pokemon Moves Link */}
             <div>
@@ -158,6 +158,7 @@ export const PokemonDetail = () => {
           </div>
         </div>
       </div>
+     <div className="mt-20"></div> 
     </>
   );
 };

@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function Footer() {
   return (
+    <>
+    <div className='mt-5'></div>
     <footer
       style={{
         bottom: 0,
@@ -17,5 +19,7 @@ export default function Footer() {
     >
       Made by Karan Khatik
     </footer>
+    </>
+    
   );
 }

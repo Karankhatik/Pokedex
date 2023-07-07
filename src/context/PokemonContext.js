@@ -7,8 +7,17 @@ function PokemonProvider(props) {
 
   function addPokemon(pokemonImage, pokemonName, pokemonType) {
     const newPokemon = { pokemonImage, pokemonName, pokemonType };
-    setFavouritePokemons([...favouritePokemons, newPokemon]);
+  
+    // Check if the Pokemon already exists in the favouritePokemons array
+    const isPokemonExists = favouritePokemons.some(
+      (pokemon) => pokemon.pokemonName === pokemonName
+    );
+  
+    if (!isPokemonExists) {
+      setFavouritePokemons([...favouritePokemons, newPokemon]);
+    }
   }
+  
 
   function removePokemon(pokemonName) {
     const updatedPokemons = favouritePokemons.filter(
