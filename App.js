@@ -11,6 +11,7 @@ import { AboutPokemon } from "./src/components/pokem-detail-pages/AboutPokemon";
 import { BaseStatics } from "./src/components/pokem-detail-pages/BaseStatics";
 import { Moves } from "./src/components/pokem-detail-pages/Moves";
 import { Evolution } from "./src/components/pokem-detail-pages/Evolution";
+import { FavouritePokemons } from "./src/components/FavouritePokemons";
 
 const AppLayout = () => {
   return (
@@ -58,6 +59,14 @@ const creatingRouter = createBrowserRouter([
           },
         ],
       },
+      {
+        path: "/favourite-pokemon",
+        element: <FavouritePokemons/>,
+      },
+      {
+        path: "*",
+        element: <Error />,
+      }
     ],
   },
 ]);

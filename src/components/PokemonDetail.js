@@ -1,14 +1,18 @@
 import React from "react";
 import { Outlet, useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { PokemonContext } from "../context/PokemonContext";
 
 export const PokemonDetail = () => {
-  const [pokemonDetail, setPokemonDetail] = useState([]);
+  const [pokemonDetail, setPokemonDetail] = useState('');
   const [pokemonImage, setPokemonImage] = useState();
   const [pokemonName, setPokemonName] = useState();
   const [pokemonType, setPokemonType] = useState([]);
   const [isLiked, setIsLiked] = useState(false); 
   const pokeId = useParams();
+
+  const { addPokemon, setFavouritePokemons} = useContext(PokemonContext);
+
   const { id } = pokeId;
 
   useEffect(() => {
@@ -32,6 +36,7 @@ export const PokemonDetail = () => {
   
   const handleLike = () => {
     setIsLiked(!isLiked);
+    addPokemon(pokemonImage, pokemonName, pokemonType);
   };
 
 
