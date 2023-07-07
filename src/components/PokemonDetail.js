@@ -49,7 +49,7 @@ export const PokemonDetail = () => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row m-5 md:m-20 space-y-5 md:space-y-0 md:space-x-20">
+      <div className="flex flex-col justify-center md:flex-row m-5 md:m-20 space-y-5 md:space-y-0 md:space-x-20">
         <div className="bg-gray-200 shadow-2xl rounded-xl p-5">
           <div className="text-right">
             <button
@@ -143,9 +143,10 @@ export const PokemonDetail = () => {
           <div className="shadow-5xl mt-2">
             <Outlet />
           </div>
+          <div className="m-50"></div>
         </div>
       </div>
-      <div className="mt-20"></div>
+      
     </>
   );
 };

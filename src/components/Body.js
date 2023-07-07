@@ -4,7 +4,7 @@ import { PokemonCardShimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnline from "../../hooks/useOnline";
 import NotFound from "./NotFound";
-
+//https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0
 export const Body = () => {
   // State variable to hold the list of all pokemons
   const [pokemons, setPokemons] = useState([]);
@@ -22,7 +22,7 @@ export const Body = () => {
 
   async function getData() {
     const url = await fetch(
-      "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
+      "https://pokeapi.co/api/v2/pokemon"
     );
     const json = await url.json();
     setPokemons(json?.results);
@@ -38,7 +38,7 @@ export const Body = () => {
 
   // checking onlineStatus 
   const onlineStatus = useOnline()
-  console.log(onlineStatus)
+  
   if(!onlineStatus){
     return <NotFound/>
   }
@@ -50,7 +50,7 @@ export const Body = () => {
         <input
           type="text"
           placeholder="Search for a restaurants"
-          className="w-64 text-xs border border-gray-300 focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
+          className="w-64 ml-10 text-xs border border-gray-300 focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);

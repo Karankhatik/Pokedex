@@ -42,10 +42,7 @@ export const Moves = () => {
         <div>move 5</div>
         <div>{data.moves[4]?.move.name}</div>
       </div>
-      <div className='flex space-x-20'>
-        <div>move 6</div>
-        <div>{data.moves[5]?.move.name}</div>
-      </div>
+      
     </div>
   );
 };

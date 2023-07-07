@@ -18,4 +18,4 @@ const useOnline = ()=>{
     },[])
     return isOnline;
 }
-export default UseOnline;
+export default useOnline;
