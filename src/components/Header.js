@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PokeDex from "../assets/PokeDex.svg";
 
 const Header = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ShimmerBody = () => {
+const ShimmerCardBody = () => {
   return (
     <>
       <div className={`bg-gray-200 w-60 p-4 rounded shadow-md h-45`}>
@@ -19,31 +19,43 @@ const ShimmerBody = () => {
 };
 
 export const PokemonCardShimmer = () => {
-    
-     
-    return (
-      <>
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      <ShimmerBody />
-      
-      </>
-    )
-  };
-  
-  
+  return (
+    <>
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+      <ShimmerCardBody />
+    </>
+  );
+};
+
+//Detail page shimmer
+
+export const ShimmerDetailBody = () => {
+  return (
+    <>
+      <div className="flex flex-col md:flex-row m-5 md:m-20 space-y-5 md:space-y-0 md:space-x-20">
+        <div className="bg-gray-200 shadow-2xl rounded-xl p-5" style={{ width: '250px', height: '250px' }}></div>
+
+        {/* Description Pages of Pokemon */}
+        <div className="bg-gray-200 shadow-2xl rounded-xl p-5" style={{ width: '250px', height: '250px' }}></div>
+      </div>
+      <div className="mt-20"></div>
+    </>
+  );
+};
+
 

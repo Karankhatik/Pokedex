@@ -3,6 +3,7 @@ import { PokemonContext } from "../context/PokemonContext";
 import { useContext } from "react";
 
 export const FavouritePokemons = () => {
+  
   const { removePokemon, favouritePokemons } = useContext(PokemonContext);
 
   return (

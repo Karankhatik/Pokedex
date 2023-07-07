@@ -10,7 +10,6 @@ import Error from "./src/components/Error";
 import { AboutPokemon } from "./src/components/pokem-detail-pages/AboutPokemon";
 import { BaseStatics } from "./src/components/pokem-detail-pages/BaseStatics";
 import { Moves } from "./src/components/pokem-detail-pages/Moves";
-import { Evolution } from "./src/components/pokem-detail-pages/Evolution";
 import { FavouritePokemons } from "./src/components/FavouritePokemons";
 
 const AppLayout = () => {
@@ -48,10 +47,6 @@ const creatingRouter = createBrowserRouter([
           {
             path: "/pokemon-detail/:id/base-stat/:id",
             element: <BaseStatics />,
-          },
-          {
-            path: "/pokemon-detail/:id/evolution/:id",
-            element: <Evolution />,
           },
           {
             path: "/pokemon-detail/:id/moves/:id",

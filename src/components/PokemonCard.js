@@ -3,31 +3,19 @@ import { useEffect, useState } from "react";
 
 export const PokemonCard = ({ data }) => {
   const { name, url } = data;
-  const [pokemonImage, setPokemonImage] = useState([]);
-  const [typeOfPokemon, setTypeOfPokemon] = useState([]);
-  const [bgColorOfPokemonCart, setBgColorOfPokemonCart] = useState([]);
+  const [pokemonImage, setPokemonImage] = useState([]); //sate for the image
+  const [typeOfPokemon, setTypeOfPokemon] = useState([]); //state for handling the types of  pokemon
 
   useEffect(() => {
-    getData();
+    //fetching API
+    fetchDataFromAPI();
   }, []);
 
-  async function getData() {
+  async function fetchDataFromAPI() {
     const urlForPokemonDetail = await fetch(url);
     const jsonForPokemonDetail = await urlForPokemonDetail.json();
 
     setTypeOfPokemon(jsonForPokemonDetail?.types);
-
-    if (jsonForPokemonDetail) {
-      const urlForPokemonSpeciesDetail = await fetch(
-        `${jsonForPokemonDetail?.species?.url}`
-      );
-      const jsonForPokemonSpeciesDetail =
-        await urlForPokemonSpeciesDetail.json();
-      if (jsonForPokemonSpeciesDetail.color) {
-        setBgColorOfPokemonCart(jsonForPokemonSpeciesDetail.color.name);
-      }
-    }
-
     setPokemonImage(
       jsonForPokemonDetail?.sprites?.other?.dream_world?.front_default
     );
@@ -46,18 +34,17 @@ export const PokemonCard = ({ data }) => {
           {/* type and species of pokemon */}
           <div className="flex space-x-2">
             <div>
-            <h1 className='text-xs font-medium shadow-md px-2 py-2 outline-none  rounded-xl bg-orange-500 hover:bg-orange-600 transition-all duration-200 ease-in-out text-white'>
-              {typeOfPokemon[0]?.type?.name}
-            </h1>
+              <h1 className="text-xs font-medium shadow-md px-2 py-2 outline-none  rounded-xl bg-orange-500 hover:bg-orange-600 transition-all duration-200 ease-in-out text-white">
+                {typeOfPokemon[0]?.type?.name}
+              </h1>
             </div>
             <div>
-            {typeOfPokemon[1]?.type?.name && (
-              <h1 className='text-xs font-medium shadow-md px-2 py-2 outline-none  rounded-xl bg-orange-500 hover:bg-orange-600 transition-all duration-200 ease-in-out text-white'>
-                {typeOfPokemon[1]?.type?.name}
-              </h1>
-            )}
-            </div>     
-            
+              {typeOfPokemon[1]?.type?.name && (
+                <h1 className="text-xs font-medium shadow-md px-2 py-2 outline-none  rounded-xl bg-orange-500 hover:bg-orange-600 transition-all duration-200 ease-in-out text-white">
+                  {typeOfPokemon[1]?.type?.name}
+                </h1>
+              )}
+            </div>
           </div>
         </div>
         {/* image of the pokemon */}

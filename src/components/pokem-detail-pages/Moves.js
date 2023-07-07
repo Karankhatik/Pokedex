@@ -6,14 +6,13 @@ export const Moves = () => {
   const [data, setData] = useState(null); // Initialize data as null
 
   useEffect(() => {
-    getDeta();
+    fetchData();
   }, [id]);
 
-  async function getDeta() {
+  async function fetchData() {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const data = await response.json();
     setData(data);
-    console.log(data.moves[0]?.move.name);
   }
 
   if (!data) {
@@ -33,11 +32,19 @@ export const Moves = () => {
       </div>
       <div className='flex space-x-20'>
         <div>move 3</div>
-        <div>{data.moves[3]?.move.name}</div>
+        <div>{data.moves[2]?.move.name}</div>
       </div>
       <div className='flex space-x-20'>
         <div>move 4</div>
+        <div>{data.moves[3]?.move.name}</div>
+      </div>
+      <div className='flex space-x-20'>
+        <div>move 5</div>
         <div>{data.moves[4]?.move.name}</div>
+      </div>
+      <div className='flex space-x-20'>
+        <div>move 6</div>
+        <div>{data.moves[5]?.move.name}</div>
       </div>
     </div>
   );
