@@ -47,7 +47,7 @@ export const PokemonCardShimmer = () => {
 export const ShimmerDetailBody = () => {
   return (
     <>
-      <div className="flex flex-col md:flex-row m-5 md:m-20 space-y-5 md:space-y-0 md:space-x-20">
+      <div className="flex justify-center flex-col md:flex-row m-5 md:m-20 space-y-5 md:space-y-0 md:space-x-20">
         <div className="bg-gray-200 shadow-2xl rounded-xl p-5" style={{ width: '250px', height: '250px' }}></div>
 
         {/* Description Pages of Pokemon */}
