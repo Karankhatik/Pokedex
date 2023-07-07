@@ -7,21 +7,19 @@ export const PokemonCard = ({ data }) => {
   const [typeOfPokemon, setTypeOfPokemon] = useState([]);
   const [bgColorOfPokemonCart, setBgColorOfPokemonCart] = useState([]);
 
-
   useEffect(() => {
     getData();
   }, []);
 
   async function getData() {
-    
     const urlForPokemonDetail = await fetch(url);
-    const jsonForPokemonDeatil = await urlForPokemonDetail.json();
+    const jsonForPokemonDetail = await urlForPokemonDetail.json();
 
-    setTypeOfPokemon(jsonForPokemonDeatil?.types);
+    setTypeOfPokemon(jsonForPokemonDetail?.types);
 
-    if (jsonForPokemonDeatil) {
+    if (jsonForPokemonDetail) {
       const urlForPokemonSpeciesDetail = await fetch(
-        `${jsonForPokemonDeatil?.species?.url}`
+        `${jsonForPokemonDetail?.species?.url}`
       );
       const jsonForPokemonSpeciesDetail =
         await urlForPokemonSpeciesDetail.json();
@@ -29,32 +27,42 @@ export const PokemonCard = ({ data }) => {
         setBgColorOfPokemonCart(jsonForPokemonSpeciesDetail.color.name);
       }
     }
-  
+
     setPokemonImage(
-      jsonForPokemonDeatil?.sprites?.other?.dream_world?.front_default
+      jsonForPokemonDetail?.sprites?.other?.dream_world?.front_default
     );
   }
 
   return (
     <>
       <div className={`bg-gray-200 shadow-xl rounded-xl w-60 p-4  h-45`}>
-        <h3 className="text-lg font-medium text-gray-800">
-          {name.charAt(0).toUpperCase() + name.slice(1)}
-        </h3>
-        <div className="flex flex-row mt-10 justify-between space-x-2">
-          <div className="m-35">
-            <h1 className={`bg-gray-100 p-1 rounded-xl`}>
+        <div className="flex space-x-2">
+          {/* Name of Pokemon */}
+          <div>
+            <h3 className="text-lg font-medium text-gray-800">
+              {name.charAt(0).toUpperCase() + name.slice(1)}
+            </h3>
+          </div>
+          {/* type and species of pokemon */}
+          <div className="flex space-x-2">
+            <div>
+            <h1 className='text-xs font-medium shadow-md px-2 py-2 outline-none  rounded-xl bg-orange-500 hover:bg-orange-600 transition-all duration-200 ease-in-out text-white'>
               {typeOfPokemon[0]?.type?.name}
             </h1>
+            </div>
+            <div>
             {typeOfPokemon[1]?.type?.name && (
-              <h1 className={`bg-gray-100 rounded-xl mt-3 p-1`}>
+              <h1 className='text-xs font-medium shadow-md px-2 py-2 outline-none  rounded-xl bg-orange-500 hover:bg-orange-600 transition-all duration-200 ease-in-out text-white'>
                 {typeOfPokemon[1]?.type?.name}
               </h1>
             )}
+            </div>     
+            
           </div>
-          <div className="mb-5 w-40 h-40">
-            <img className="w-22 h-25 drop-shadow-2xl" src={pokemonImage} />
-          </div>
+        </div>
+        {/* image of the pokemon */}
+        <div className="mb-5 p-5 w-40 h-40">
+          <img className="w-22 h-25 drop-shadow-2xl" src={pokemonImage} />
         </div>
       </div>
     </>
